@@ -35,16 +35,16 @@ function createModel() {
 }
 
 function insertDocuments(model) {
-    model.create({ name: 'Vince1', money: 42 });
-    model.create({ name: 'Target1', money: 10 });
+    model.create({ name: 'Vince', money: 42 });
+    model.create({ name: 'Target', money: 10 });
 }
 
 function testTransactions() {
     let task = Fawn.Task();
 
     task
-        .update(TABLE, { name: 'Vince1' }, { $inc: { money: -10 } })
-        .update(TABLE, { name: 'Target1' }, { $inc: { money: 10 } })
+        .update(TABLE, { name: 'Vince' }, { $inc: { money: -10 } })
+        .update(TABLE, { name: 'Target' }, { $inc: { money: 10 } })
         .run()
         .then(results => {
             console.log('Fawn task is complete');
